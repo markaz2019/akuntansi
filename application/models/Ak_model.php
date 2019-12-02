@@ -291,4 +291,12 @@ class Ak_model extends CI_Model
         $query = $this->db->truncate('data');
         return $query;
     }
+
+    function excel()
+    {
+        $this->db->select('*');
+        $this->db->from('data');
+        $this->db->where('tanggal');
+        return $this->db->get();
+    }
 }
