@@ -46,7 +46,9 @@
         <br>
         <center>
             <h1 class=" text-muted">LAPORAN HARIAN</h1>
-            <button class="btn btn-success">Export </button>
+            <form method="post" action="<?php echo base_url('Export/export') ?>">
+                <button class="btn btn-success">Export </button>
+            </form>
 
         </center>
         <p>Tanggal <strong><?= date('d/m/Y', strtotime($tanggal)); ?></strong></p>
