@@ -2568,7 +2568,7 @@ fieldset:disabled a.btn {
 }
 
 .btn-success {
-	border-color: #00f2c3;
+	border-color: #1f2251 !important;
 	box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08)
 }
 
@@ -11621,11 +11621,10 @@ fieldset[disabled] .btn-primary:hover {
 }
 
 .btn-success {
-	background: #00f2c3;
-	background-image: linear-gradient(to bottom left, #00f2c3, #0098f0, #00f2c3);
+	background: #1f2251;
 	background-size: 210% 210%;
 	background-position: 100% 0;
-	background-color: #00f2c3;
+	background-color: #1f2251;
 	transition: all .15s ease;
 	box-shadow: none;
 	color: #fff

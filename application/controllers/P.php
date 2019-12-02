@@ -624,6 +624,8 @@ class P extends CI_Controller
 			$this->load->view('template/footer');
 		}
 
+
+
 		function bersihkan()
 		{
 			$exec = $this->Ak_model->bersihkan();

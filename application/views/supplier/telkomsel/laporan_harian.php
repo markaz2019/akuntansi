@@ -8,6 +8,9 @@
 		<br>
 		<center>
 			<h1 class=" text-muted">LAPORAN HARIAN</h1>
+			<form method="post" action="<?php echo base_url('Export/Export') ?>">
+				<button class="btn btn-success">Export </button>
+			</form>
 		</center>
 		<p>Tanggal <strong><?= $tanggal; ?></strong></p>
 		<form class="form-inline ml-auto">
@@ -43,6 +46,8 @@
 		<br>
 		<center>
 			<h1 class=" text-muted">LAPORAN HARIAN</h1>
+			<button class="btn btn-success">Export </button>
+
 		</center>
 		<p>Tanggal <strong><?= date('d/m/Y', strtotime($tanggal)); ?></strong></p>
 		<form class="form-inline ml-auto">
