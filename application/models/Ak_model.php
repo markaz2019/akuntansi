@@ -296,7 +296,6 @@ class Ak_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('data');
-        $this->db->where('tanggal');
         return $this->db->get();
     }
 }
