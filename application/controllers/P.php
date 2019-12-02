@@ -48,16 +48,6 @@ class P extends CI_Controller
 			'halaman' 		=> $this->pagination->create_links(),
 			'result' 		=> $this->Ak_model->laporan_harian($tgldb, $config['per_page'], $from)
 		);
-		// laporan Penjumlahan harian
-		$data['jumlah_trx'] = $this->Ak_model->jumlah_trx();
-		$data['jumlah_spl'] = $this->Ak_model->jumlah_spl();
-		$data['jumlah_selisih_trx'] = $this->Ak_model->jumlah_selisih_trx();
-		$data['Jumlah_saldo_awal'] = $this->Ak_model->Jumlah_saldo_awal();
-		$data['jumlah_deposit'] = $this->Ak_model->jumlah_deposit();
-		$data['jumlah_pemakaian'] = $this->Ak_model->jumlah_pemakaian();
-		$data['jumlah_saldo_akhir_cs'] = $this->Ak_model->jumlah_saldo_akhir_cs();
-		$data['jumlah_selisih_akhir'] = $this->Ak_model->jumlah_selisih_akhir();
-
 		$this->load->view('template/header');
 		$this->load->view('template/navbar');
 		$this->load->view('all/search');

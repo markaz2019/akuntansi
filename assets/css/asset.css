@@ -16263,12 +16263,12 @@ hr {
   outline: none;
 }
 
-.pagination .page-item .page-link:hover,
-.pagination .page-item .page-link:focus {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
+.pagination .page-item .page-link:focus,
+.pagination .page-item .page-link:hover {
+  background-color: hsla(0, 97%, 5%, 0.43);
+  color: #fff;
   border: none;
-  box-shadow: none;
+  box-shadow: none
 }
 
 .pagination .arrow-margin-left,

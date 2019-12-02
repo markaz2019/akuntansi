@@ -15567,7 +15567,7 @@ hr {
 
 .pagination .page-item .page-link:focus,
 .pagination .page-item .page-link:hover {
-	background-color: hsla(0, 0%, 100%, .1);
+	background-color: hsla(0, 97%, 5%, 0.43);
 	color: #fff;
 	border: none;
 	box-shadow: none
