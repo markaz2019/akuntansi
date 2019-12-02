@@ -15562,7 +15562,8 @@ hr {
 	line-height: 30px;
 	cursor: pointer;
 	text-transform: uppercase;
-	outline: none
+	outline: none;
+	color: #232222;
 }
 
 .pagination .page-item .page-link:focus,
