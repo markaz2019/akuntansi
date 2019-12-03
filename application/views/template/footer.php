@@ -1,5 +1,5 @@
-</div>
-
+<br>
+<br>
 <script rel="stylesheet" href="<?= base_url() . 'assets/demo/style.js' ?>"></script>
 
 <script rel="stylesheet" href="<?= base_url() . 'assets/js/style.js' ?>"></script>

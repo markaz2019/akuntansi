@@ -304,4 +304,60 @@ class Ak_model extends CI_Model
     }
     // END MODEL KISEL
 
+    // START MODEL KISEL SELISIH
+
+    // Laporan harian kisel
+    public function total_harian_masuk_kisel_selisih($tanggal)
+    {
+        $this->db->select('*');
+        $this->db->from('kisel_baru_selisih');
+        $this->db->where('tanggal', $tanggal);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function total_harian_keluar_kisel_selisih($tanggal)
+    {
+        $this->db->select('*');
+        $this->db->from('kisel_baru_selisih');
+        $this->db->where('tanggal', $tanggal);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function laporan_harian_kisel_selisih($tanggal, $number, $offset)
+    {
+        $this->db->where('tanggal', $tanggal);
+        $query = $this->db->get('kisel_baru_selisih', $number, $offset);
+        return $query->result();
+    }
+
+    // Laporan periode kisel
+    function total_periode_masuk_kisel_selisih($mulai, $sampai)
+    {
+        $this->db->select('*');
+        $this->db->from('kisel_baru_selisih');
+        $this->db->where('tanggal >=', $mulai);
+        $this->db->where('tanggal <=', $sampai);
+        $query = $this->db->get();
+        return $query->result();
+    }
+    function total_periode_keluar_kisel_selisih($mulai, $sampai)
+    {
+        $this->db->select('*');
+        $this->db->from('kisel_baru_selisih');
+        $this->db->where('tanggal >=', $mulai);
+        $this->db->where('tanggal <=', $sampai);
+        $query = $this->db->get();
+        return $query->result();
+    }
+    function laporan_periode_kisel_selisih($mulai, $sampai, $number, $offset)
+    {
+        $this->db->where('tanggal >=', $mulai);
+        $this->db->where('tanggal <=', $sampai);
+        $query = $this->db->get('kisel_baru_selisih', $number, $offset);
+        return $query->result();
+    }
+    // END MODEL KISEL
+
 }
