@@ -1,0 +1,22 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "marketplace",
+            "dialect": "PostgreSQL",
+            "name": "Serverit",
+            "password": "root",
+            "port": 5432,
+            "server": "localhost",
+            "username": "postgres"
+        },
+        {
+            "database": "marketplace",
+            "dialect": "PostgreSQL",
+            "name": "192.168.5.57",
+            "password": "root",
+            "port": 5432,
+            "server": "localhost",
+            "username": "postgres"
+        }
+    ]
+}

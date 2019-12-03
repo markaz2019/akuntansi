@@ -28,7 +28,7 @@
 		</thead>.
 		<tbody>
 			<?php $i = 1;
-			foreach ($result as $data) { ?>
+			foreach ($telkomsel as $data) { ?>
 				<tr>
 					<td><?= $i++ ?></td>
 					<td><?= $data->modul_id; ?></td>

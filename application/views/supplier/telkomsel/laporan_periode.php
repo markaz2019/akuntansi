@@ -3,7 +3,7 @@
 	<center>
 		<h1 class=" text-muted">LAPORAN PERIODE</h1>
 		<form method="post" action="<?php echo base_url('Export/export') ?>">
-			<button class="btn btn-success">Export </button>
+			<button class="btn btn-neutral">Export </button>
 		</form>
 	</center>
 	<p>Tanggal <strong><?= date('d/m/Y', strtotime($tgl_mulai)); ?></strong> s.d <strong><?= date('d/m/Y', strtotime($tgl_sampai)); ?></strong></p>
@@ -28,7 +28,7 @@
 		</thead>
 		<tbody>
 			<?php $i = 1;
-			foreach ($result as $data) { ?>
+			foreach ($telkomsel as $data) { ?>
 				<tr>
 					<td><?= $i++ ?></td>
 					<td><?= $data->modul_id; ?></td>
