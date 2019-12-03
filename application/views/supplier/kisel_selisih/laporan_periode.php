@@ -25,7 +25,7 @@
 		</thead>
 		<tbody>
 			<?php $i = 1;
-			foreach ($result as $data) { ?>
+			foreach ($kisel_selisih as $data) { ?>
 				<tr>
 					<td><?= $i++ ?></td>
 					<td><?= $data->modul_id; ?></td>

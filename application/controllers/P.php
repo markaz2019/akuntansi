@@ -46,7 +46,12 @@ class P extends CI_Controller
 			'ttl_masuk'		=> $this->Ak_model->total_harian_masuk($tgldb),
 			'ttl_keluar'	=> $this->Ak_model->total_harian_keluar($tgldb),
 			'halaman' 		=> $this->pagination->create_links(),
-			'result' 		=> $this->Ak_model->laporan_harian($tgldb, $config['per_page'], $from)
+			'result' 		=> $this->Ak_model->laporan_harian($tgldb, $config['per_page'], $from),
+			'nirwana' 		=> $this->Ak_model->laporan_harian_nirwana($tgldb, $config['per_page'], $from),
+			'nirwana_oto' 	=> $this->Ak_model->laporan_harian_nirwana_oto($tgldb, $config['per_page'], $from),
+			'kisel' 		=> $this->Ak_model->laporan_harian_kisel($tgldb, $config['per_page'], $from),
+			'kisel_selisih' => $this->Ak_model->laporan_harian($tgldb, $config['per_page'], $from)
+
 		);
 		$this->load->view('template/header');
 		$this->load->view('template/navbar');
@@ -128,7 +133,7 @@ class P extends CI_Controller
 			'ttl_masuk'		=> $this->Ak_model->total_harian_masuk($tgldb),
 			'ttl_keluar'	=> $this->Ak_model->total_harian_keluar($tgldb),
 			'halaman' 		=> $this->pagination->create_links(),
-			'result' 		=> $this->Ak_model->laporan_harian($tgldb, $config['per_page'], $from)
+			'telkomsel' 		=> $this->Ak_model->laporan_harian($tgldb, $config['per_page'], $from)
 		);
 		$this->load->view('template/header');
 		$this->load->view('template/navbar');
@@ -159,7 +164,7 @@ class P extends CI_Controller
 			'ttl_masuk'		=> $this->Ak_model->total_periode_masuk($tgl_mulai, $tgl_sampai),
 			'ttl_keluar'	=> $this->Ak_model->total_periode_keluar($tgl_mulai, $tgl_sampai),
 			'halaman' 		=> $this->pagination->create_links(),
-			'result' 		=> $this->Ak_model->laporan_periode($tgl_mulai_db, $tgl_sampai_db, $config['per_page'], $from)
+			'telkomsel' 		=> $this->Ak_model->laporan_periode($tgl_mulai_db, $tgl_sampai_db, $config['per_page'], $from)
 		);
 		$this->load->view('template/header');
 		$this->load->view('template/navbar');
@@ -168,7 +173,7 @@ class P extends CI_Controller
 		$this->load->view('template/footer');
 	}
 
-	// Nirwana Laporan
+	// Laporan Nirwana
 	public function nirwana()
 	{
 		$this->load->view('template/header');
@@ -194,10 +199,10 @@ class P extends CI_Controller
 		$from = $this->uri->segment(4);
 		$data = array(
 			'tanggal' 		=> $tgldb,
-			'ttl_masuk'		=> $this->Ak_model->total_harian_masuk($tgldb),
-			'ttl_keluar'	=> $this->Ak_model->total_harian_keluar($tgldb),
+			'ttl_masuk'		=> $this->Ak_model->total_harian_masuk_nirwana($tgldb),
+			'ttl_keluar'	=> $this->Ak_model->total_harian_keluar_nirwana($tgldb),
 			'halaman' 		=> $this->pagination->create_links(),
-			'result' 		=> $this->Ak_model->laporan_harian($tgldb, $config['per_page'], $from)
+			'nirwana' 		=> $this->Ak_model->laporan_harian_nirwana($tgldb, $config['per_page'], $from)
 		);
 		$this->load->view('template/header');
 		$this->load->view('template/navbar');
@@ -225,10 +230,10 @@ class P extends CI_Controller
 		$data = array(
 			'tgl_mulai' 	=> $tgl_mulai_db,
 			'tgl_sampai'	=> $tgl_sampai_db,
-			'ttl_masuk'		=> $this->Ak_model->total_periode_masuk($tgl_mulai, $tgl_sampai),
-			'ttl_keluar'	=> $this->Ak_model->total_periode_keluar($tgl_mulai, $tgl_sampai),
+			'ttl_masuk'		=> $this->Ak_model->total_periode_masuk_nirwana($tgl_mulai, $tgl_sampai),
+			'ttl_keluar'	=> $this->Ak_model->total_periode_keluar_nirwana($tgl_mulai, $tgl_sampai),
 			'halaman' 		=> $this->pagination->create_links(),
-			'result' 		=> $this->Ak_model->laporan_periode($tgl_mulai_db, $tgl_sampai_db, $config['per_page'], $from)
+			'nirwana' 		=> $this->Ak_model->laporan_periode_nirwana($tgl_mulai_db, $tgl_sampai_db, $config['per_page'], $from)
 		);
 		$this->load->view('template/header');
 		$this->load->view('template/navbar');
@@ -263,10 +268,10 @@ class P extends CI_Controller
 		$from = $this->uri->segment(4);
 		$data = array(
 			'tanggal' 		=> $tgldb,
-			'ttl_masuk'		=> $this->Ak_model->total_harian_masuk($tgldb),
-			'ttl_keluar'	=> $this->Ak_model->total_harian_keluar($tgldb),
+			'ttl_masuk'		=> $this->Ak_model->total_harian_masuk_nirwana_oto($tgldb),
+			'ttl_keluar'	=> $this->Ak_model->total_harian_keluar_nirwana_oto($tgldb),
 			'halaman' 		=> $this->pagination->create_links(),
-			'result' 		=> $this->Ak_model->laporan_harian($tgldb, $config['per_page'], $from)
+			'nirwana_oto' 		=> $this->Ak_model->laporan_harian_nirwana_oto($tgldb, $config['per_page'], $from)
 		);
 		$this->load->view('template/header');
 		$this->load->view('template/navbar');
@@ -294,10 +299,10 @@ class P extends CI_Controller
 		$data = array(
 			'tgl_mulai' 	=> $tgl_mulai_db,
 			'tgl_sampai'	=> $tgl_sampai_db,
-			'ttl_masuk'		=> $this->Ak_model->total_periode_masuk($tgl_mulai, $tgl_sampai),
-			'ttl_keluar'	=> $this->Ak_model->total_periode_keluar($tgl_mulai, $tgl_sampai),
+			'ttl_masuk'		=> $this->Ak_model->total_periode_masuk_nirwana_oto($tgl_mulai, $tgl_sampai),
+			'ttl_keluar'	=> $this->Ak_model->total_periode_keluar_nirwana_oto($tgl_mulai, $tgl_sampai),
 			'halaman' 		=> $this->pagination->create_links(),
-			'result' 		=> $this->Ak_model->laporan_periode($tgl_mulai_db, $tgl_sampai_db, $config['per_page'], $from)
+			'nirwana_oto' 		=> $this->Ak_model->laporan_periode_nirwana_oto($tgl_mulai_db, $tgl_sampai_db, $config['per_page'], $from)
 		);
 		$this->load->view('template/header');
 		$this->load->view('template/navbar');
@@ -306,7 +311,7 @@ class P extends CI_Controller
 		$this->load->view('template/footer');
 	}
 
-	// Kisel Laporan
+	// Laporan kisel
 	public function kisel()
 	{
 
@@ -333,10 +338,10 @@ class P extends CI_Controller
 		$from = $this->uri->segment(4);
 		$data = array(
 			'tanggal' 		=> $tgldb,
-			'ttl_masuk'		=> $this->Ak_model->total_harian_masuk($tgldb),
-			'ttl_keluar'	=> $this->Ak_model->total_harian_keluar($tgldb),
+			'ttl_masuk'		=> $this->Ak_model->total_harian_masuk_kisel($tgldb),
+			'ttl_keluar'	=> $this->Ak_model->total_harian_keluar_kisel($tgldb),
 			'halaman' 		=> $this->pagination->create_links(),
-			'result' 		=> $this->Ak_model->laporan_harian($tgldb, $config['per_page'], $from)
+			'kisel' 		=> $this->Ak_model->laporan_harian_kisel($tgldb, $config['per_page'], $from)
 		);
 		$this->load->view('template/header');
 		$this->load->view('template/navbar');
@@ -364,10 +369,10 @@ class P extends CI_Controller
 		$data = array(
 			'tgl_mulai' 	=> $tgl_mulai_db,
 			'tgl_sampai'	=> $tgl_sampai_db,
-			'ttl_masuk'		=> $this->Ak_model->total_periode_masuk($tgl_mulai, $tgl_sampai),
-			'ttl_keluar'	=> $this->Ak_model->total_periode_keluar($tgl_mulai, $tgl_sampai),
+			'ttl_masuk'		=> $this->Ak_model->total_periode_masuk_kisel($tgl_mulai, $tgl_sampai),
+			'ttl_keluar'	=> $this->Ak_model->total_periode_keluar_kisel($tgl_mulai, $tgl_sampai),
 			'halaman' 		=> $this->pagination->create_links(),
-			'result' 		=> $this->Ak_model->laporan_periode($tgl_mulai_db, $tgl_sampai_db, $config['per_page'], $from)
+			'kisel' 		=> $this->Ak_model->laporan_periode_kisel($tgl_mulai_db, $tgl_sampai_db, $config['per_page'], $from)
 		);
 		$this->load->view('template/header');
 		$this->load->view('template/navbar');
@@ -404,7 +409,7 @@ class P extends CI_Controller
 			'ttl_masuk'		=> $this->Ak_model->total_harian_masuk($tgldb),
 			'ttl_keluar'	=> $this->Ak_model->total_harian_keluar($tgldb),
 			'halaman' 		=> $this->pagination->create_links(),
-			'result' 		=> $this->Ak_model->laporan_harian($tgldb, $config['per_page'], $from)
+			'kisel_selisih' => $this->Ak_model->laporan_harian($tgldb, $config['per_page'], $from)
 		);
 		$this->load->view('template/header');
 		$this->load->view('template/navbar');
@@ -435,7 +440,7 @@ class P extends CI_Controller
 			'ttl_masuk'		=> $this->Ak_model->total_periode_masuk($tgl_mulai, $tgl_sampai),
 			'ttl_keluar'	=> $this->Ak_model->total_periode_keluar($tgl_mulai, $tgl_sampai),
 			'halaman' 		=> $this->pagination->create_links(),
-			'result' 		=> $this->Ak_model->laporan_periode($tgl_mulai_db, $tgl_sampai_db, $config['per_page'], $from)
+			'kisel_selisih' 		=> $this->Ak_model->laporan_periode($tgl_mulai_db, $tgl_sampai_db, $config['per_page'], $from)
 		);
 		$this->load->view('template/header');
 		$this->load->view('template/navbar');
