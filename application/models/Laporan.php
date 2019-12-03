@@ -1,13 +1,55 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Ak_model extends CI_Model
+class Laporan extends CI_Model
 {
+    function login($username, $password)
+    {
+        $this->db->where('username', $username);
+        $this->db->where('password', $password);
+        $query = $this->db->get('login');
+        return $query->result_array();
+    }
+
+    function nomor()
+    {
+        $this->db->select('nomor');
+        $this->db->order_by('nomor DESC');
+        $query = $this->db->get('data');
+        return $query->result_array();
+    }
+
     function ambil_data($nomor)
     {
         $this->db->where('nomor', $nomor);
         $query = $this->db->get('data');
         return $query->result_array();
+    }
+
+    function tambah_pemasukan($data)
+    {
+        $query = $this->db->insert('data', $data);
+        return $query;
+    }
+
+    function tambah_pengeluaran($data)
+    {
+        $query = $this->db->insert('data', $data);
+        return $query;
+    }
+
+    function ubah($nomor, $data)
+    {
+        $this->db->where('nomor', $nomor);
+        $query = $this->db->update('data', $data);
+        return $query;
+    }
+
+    function hapus($nomor)
+    {
+        $this->db->where('nomor', $nomor);
+        $query = $this->db->delete('data');
+        return $query;
     }
 
     function row_harian($tanggal)
@@ -71,6 +113,32 @@ class Ak_model extends CI_Model
         $query = $this->db->get('data', $number, $offset);
         return $query->result();
     }
+
+    function row_cari($search)
+    {
+        $this->db->from('data');
+        $this->db->or_like($search);
+        $query = $this->db->get();
+        return $query->num_rows();
+    }
+
+    function cari($batas = null, $offset = null, $search = null)
+    {
+        $this->db->from('data');
+        if ($batas != null) {
+            $this->db->limit($batas, $offset);
+        }
+        if ($search != null) {
+            $this->db->or_like($search);
+        }
+        $this->db->order_by('nomor ASC');
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        }
+    }
+
     function total_masuk()
     {
         $this->db->select('selisih');
@@ -129,6 +197,12 @@ class Ak_model extends CI_Model
         $this->db->where('jenis', 'keluar');
         $query = $this->db->get();
         return $query->result();
+    }
+
+    function bersihkan()
+    {
+        $query = $this->db->truncate('data');
+        return $query;
     }
 
     function excel()
