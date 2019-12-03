@@ -11,18 +11,18 @@ class Export extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Ak_model');
+        $this->load->model('Export_model');
     }
 
     public function index()
     {
-        $data['data'] = $this->Ak_model->excel()->result();
+        $data['data'] = $this->Export_model->excel()->result();
         $this->load->view('export', $data);
     }
 
     public function export()
     {
-        $data = $this->Ak_model->excel()->result();
+        $data = $this->Export_model->excel()->result();
 
         $spreadsheet = new Spreadsheet;
 

@@ -695,7 +695,7 @@ class P extends CI_Controller
 			$config['prev_link']        = '&laquo';
 			$config['prev_tag_open']    = '<li class="page-item page-link">';
 			$config['prev_tag_close']   = '</li>';
-			$config['next_link']        = '&raquo';
+			$config['n          t_link']        = '&raquo';
 			$config['next_tag_open']    = '<li class="page-item page-link">';
 			$config['next_tag_close']   = '</li>';
 			$config['cur_tag_open']     = '<li class="page-item page-link">';
