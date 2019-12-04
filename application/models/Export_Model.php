@@ -9,4 +9,21 @@ class Export_model extends CI_Model
         $this->db->from('data');
         return $this->db->get();
     }
+
+    public function pdf($tanggal)
+    {
+        $this->db->where('tanggal', $tanggal);
+        $this->db->where('jenis', "masuk");
+        $this->db->order_by('nomor ASC');
+        $query = $this->db->get('data');
+        return $query->result();
+    }
+    public function row($tanggal)
+    {
+        $this->db->where('tanggal', $tanggal);
+        $this->db->where('jenis', "masuk");
+        $this->db->order_by('nomor ASC');
+        $query = $this->db->get('data');
+        return $query->result();
+    }
 }

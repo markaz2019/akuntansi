@@ -3,8 +3,10 @@
 	<center>
 		<h1 class=" text-muted">LAPORAN HARIAN</h1>
 		<form method="post" action="<?php echo base_url('Export/export') ?>">
-			<button class="btn btn-success">Export </button>
+			<button class="btn btn-success">Export </button> </form>
+		<form method="post" action="<?php echo base_url('Export/pdf') ?>">
 			<button class="btn btn-success">Print</button>
+		</form>
 		</form>
 	</center>
 	<p><strong><?= date('d/m/Y', strtotime($tanggal)); ?></strong></p>
