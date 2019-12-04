@@ -86,7 +86,7 @@ class Export extends CI_Controller
         $pdf->SetFont('Arial', 'B', 12);
         $pdf->Cell(10, 7, '', 0, 1);
         $pdf->SetFont('Arial', 'B', 9);
-        $pdf->SetFillColor(67, 187, 70);H    
+        $pdf->SetFillColor(67, 187, 70);
         $pdf->Cell(196, 6, '"ASSET MARKAZ"', 1, 1, 'C', 'green');
         $pdf->SetFont('Arial', 'B', 9);
         $pdf->Cell(196, 6, $tanggal, 1, 1, 'C');
