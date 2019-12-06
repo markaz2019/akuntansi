@@ -22,7 +22,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <link rel="stylesheet" href="<?= base_url() . 'assets/css/material.amber-pink.min.css' ?>">
     <link rel="stylesheet" href="<?= base_url() . 'assets/css/dataTables.bootstrap4.min.css' ?>">
     <link rel="stylesheet" href="<?= base_url() . 'assets/css/tables.css' ?>">
-
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
     <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css"> -->
 
     </body>

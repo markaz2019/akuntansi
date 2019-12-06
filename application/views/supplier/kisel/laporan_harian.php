@@ -4,6 +4,7 @@
 		<h1 class=" text-muted">LAPORAN HARIAN</h1>
 	</center>
 	<p>Tanggal <strong><?= date('d/m/Y', strtotime($tanggal)); ?></strong></p>
+
 	<table id="example" class="table table-striped table-bordered table-hover" style="width:100%">
 		<thead>
 			<tr>
@@ -56,4 +57,5 @@
 			<?php } ?>
 		</tbody>
 	</table>
+
 </div>
