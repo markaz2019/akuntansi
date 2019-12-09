@@ -2,13 +2,15 @@
 	<br>
 	<center>
 		<h1 class=" text-muted">LAPORAN HARIAN</h1>
-		<form method="post" action="<?php echo base_url('Export/export') ?>">
-			<button class="btn btn-success">Export </button>
-			<button class="btn btn-success">Print</button>
+		<form method="post" action="<?php echo base_url('Export/pdf') ?>">
+			<button class="btn btn-neutral">Print to PDF</button>
+		</form>
+		<form method="post" action="<?php echo base_url('Export/excel') ?>">
+			<button class="btn btn-neutral">Excel</button>
 		</form>
 	</center>
 	<p><strong><?= date('d/m/Y', strtotime($tanggal)); ?></strong></p>
-	<table id="example" class="table table-striped table-bordered table-hover" style="width:100%">
+	<table id="data" class="table table-striped table-bordered table-hover" style="width:100%">
 		<thead>
 			<tr>
 				<th>No</th>
@@ -58,4 +60,26 @@
 			<?php } ?>
 		</tbody>
 	</table>
+	<script>
+		var tableToExcel = (function() {
+			var uri = 'data:application/vnd.ms-excel;base64,',
+				template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>',
+				base64 = function(s) {
+					return window.btoa(unescape(encodeURIComponent(s)))
+				},
+				format = function(s, c) {
+					return s.replace(/{(\w+)}/g, function(m, p) {
+						return c[p];
+					})
+				}
+			return function(table, name) {
+				if (!table.nodeType) table = document.getElementById(table)
+				var ctx = {
+					worksheet: name || 'Worksheet',
+					table: table.innerHTML
+				}
+				window.location.href = uri + base64(format(template, ctx))
+			}
+		})()
+	</script>
 </div>
