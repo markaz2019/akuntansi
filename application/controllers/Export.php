@@ -17,7 +17,6 @@ class Export extends CI_Controller
         $this->load->library('pdf');
     }
 
-
     public function index()
     {
 
