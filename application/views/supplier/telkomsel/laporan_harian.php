@@ -2,9 +2,11 @@
 	<br>
 	<center>
 		<h1 class=" text-muted">LAPORAN HARIAN</h1>
-		<button class="btn btn-neutral" onclick="tableToExcel('data')" value="Export to Excel">Export Excel</button>
 		<form method="post" action="<?php echo base_url('Export/pdf') ?>">
 			<button class="btn btn-neutral">Print to PDF</button>
+		</form>
+		<form method="post" action="<?php echo base_url('Export/excel') ?>">
+			<button class="btn btn-neutral">Excel</button>
 		</form>
 	</center>
 	<p><strong><?= date('d/m/Y', strtotime($tanggal)); ?></strong></p>
