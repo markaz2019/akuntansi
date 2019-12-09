@@ -35,6 +35,7 @@
         $('#example').DataTable();
     });
 </script>
+
 </body>
 
 </html>

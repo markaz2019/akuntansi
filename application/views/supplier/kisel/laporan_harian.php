@@ -25,13 +25,6 @@
 				<th scope="col">Tanggal</th>
 			</tr>
 		</thead>
-		<thead>
-			<tr>
-				<th scope="col" style="display:inline-block">Stock Awal</th>
-				<th scope="col" style="display:inline-block">Deposit</th>
-				<th scope="col" style="display:inline-block">Pemakaian</th>
-			</tr>
-		</thead>
 		<tbody>
 			<?php $i = 1;
 			foreach ($kisel as $data) { ?>

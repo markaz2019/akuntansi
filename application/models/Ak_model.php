@@ -1,9 +1,10 @@
+  
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+
 class Ak_model extends CI_Model
 {
-
     // START MODEL TELKOMSEL
     function ambil_data($nomor)
     {
@@ -11,14 +12,12 @@ class Ak_model extends CI_Model
         $query = $this->db->get('data');
         return $query->result_array();
     }
-
     function row_harian($tanggal)
     {
         $this->db->where('tanggal', $tanggal);
         $query = $this->db->get('data');
         return $query->num_rows();
     }
-
     function laporan_harian($tanggal, $number, $offset)
     {
         $this->db->where('tanggal', $tanggal);
@@ -26,7 +25,6 @@ class Ak_model extends CI_Model
         $query = $this->db->get('data', $number, $offset);
         return $query->result();
     }
-
     function row_periode($mulai, $sampai)
     {
         $this->db->where('tanggal >=', $mulai);
@@ -34,7 +32,6 @@ class Ak_model extends CI_Model
         $query = $this->db->get('data');
         return $query->num_rows();
     }
-
     function laporan_periode($mulai, $sampai, $number, $offset)
     {
         $this->db->where('tanggal >=', $mulai);
@@ -43,14 +40,12 @@ class Ak_model extends CI_Model
         $query = $this->db->get('data', $number, $offset);
         return $query->result();
     }
-
     function row_masuk()
     {
         $this->db->where('jenis', 'masuk');
         $query = $this->db->get('data');
         return $query->num_rows();
     }
-
     function masuk($number, $offset)
     {
         $this->db->where('jenis', 'masuk');
@@ -58,14 +53,12 @@ class Ak_model extends CI_Model
         $query = $this->db->get('data', $number, $offset);
         return $query->result();
     }
-
     function row_keluar()
     {
         $this->db->where('jenis', 'keluar');
         $query = $this->db->get('data');
         return $query->num_rows();
     }
-
     function keluar($number, $offset)
     {
         $this->db->where('jenis', 'keluar');
@@ -81,7 +74,6 @@ class Ak_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-
     function total_keluar()
     {
         $this->db->select('jumlah');
@@ -90,7 +82,6 @@ class Ak_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-
     function total_harian_masuk($tanggal)
     {
         $this->db->select('selisih');
@@ -100,7 +91,6 @@ class Ak_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-
     function total_harian_keluar($tanggal)
     {
         $this->db->select('selisih');
@@ -110,7 +100,6 @@ class Ak_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-
     function total_periode_masuk($mulai, $sampai)
     {
         $this->db->select('selisih');
@@ -121,7 +110,6 @@ class Ak_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-
     function total_periode_keluar($mulai, $sampai)
     {
         $this->db->select('selisih');
@@ -135,7 +123,6 @@ class Ak_model extends CI_Model
     // END MODEL TELKOMSEL
 
     // START MODEL NIRWANA
-
     // Laporan harian nirwana
     public function total_harian_masuk_nirwana($tanggal)
     {
@@ -145,7 +132,6 @@ class Ak_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-
     function total_harian_keluar_nirwana($tanggal)
     {
         $this->db->select('*');
@@ -154,14 +140,12 @@ class Ak_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-
     function laporan_harian_nirwana($tanggal, $number, $offset)
     {
         $this->db->where('tanggal', $tanggal);
         $query = $this->db->get('hitungan_nirwana', $number, $offset);
         return $query->result();
     }
-
     // Laporan periode nirwana
     function total_periode_masuk_nirwana($mulai, $sampai)
     {
@@ -188,11 +172,9 @@ class Ak_model extends CI_Model
         $query = $this->db->get('hitungan_nirwana', $number, $offset);
         return $query->result();
     }
-
     // END MODEL NIRWANA
 
     // START MODEL NIRWANA OTO
-
     // Laporan harian nirwana
     public function total_harian_masuk_nirwana_oto($tanggal)
     {
@@ -202,7 +184,6 @@ class Ak_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-
     function total_harian_keluar_nirwana_oto($tanggal)
     {
         $this->db->select('*');
@@ -211,14 +192,12 @@ class Ak_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-
     function laporan_harian_nirwana_oto($tanggal, $number, $offset)
     {
         $this->db->where('tanggal', $tanggal);
         $query = $this->db->get('nirwana_oto', $number, $offset);
         return $query->result();
     }
-
     // Laporan periode nirwana
     function total_periode_masuk_nirwana_oto($mulai, $sampai)
     {
@@ -247,9 +226,7 @@ class Ak_model extends CI_Model
     }
     // END MODEL NIRWANA
 
-
     // START MODEL KISEL
-
     // Laporan harian kisel
     public function total_harian_masuk_kisel($tanggal)
     {
@@ -259,7 +236,6 @@ class Ak_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-
     function total_harian_keluar_kisel($tanggal)
     {
         $this->db->select('*');
@@ -268,14 +244,12 @@ class Ak_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-
     function laporan_harian_kisel($tanggal, $number, $offset)
     {
         $this->db->where('tanggal', $tanggal);
         $query = $this->db->get('kisel_baru', $number, $offset);
         return $query->result();
     }
-
     // Laporan periode kisel
     function total_periode_masuk_kisel($mulai, $sampai)
     {
@@ -305,7 +279,6 @@ class Ak_model extends CI_Model
     // END MODEL KISEL
 
     // START MODEL KISEL SELISIH
-
     // Laporan harian kisel
     public function total_harian_masuk_kisel_selisih($tanggal)
     {
@@ -360,4 +333,21 @@ class Ak_model extends CI_Model
     }
     // END MODEL KISEL
 
+    function hitung()
+    {
+        $this->db->select('*');
+        $this->db->from('kisel_baru');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function tambah($kisel_stokakhir, $kisel_deposit, $kisel_pemakaian, $kisel_cs, $kisel_hitungan, $kisel_selisih)
+    {
+        $this->db->insert('kisel_deposit', $kisel_deposit);
+        $this->db->insert('kisel_pemakaian', $kisel_pemakaian);
+        $this->db->insert('kisel_stokakhir', $kisel_stokakhir);
+        $this->db->insert('kisel_cs', $kisel_cs);
+        $this->db->insert('kisel_hitungan', $kisel_hitungan);
+        $this->db->insert('kisel_selisih', $kisel_selisih);
+    }
 }

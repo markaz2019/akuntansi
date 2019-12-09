@@ -24,7 +24,7 @@
 					</i>MENU KISEL</a>
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="<?= base_url('p/kisel'); ?>"><i class="fa fa-cubes" aria-hidden="true"></i>KISEL</a>
-					<a class="dropdown-item" href="<?= base_url('p/kisel_selisih'); ?>"><i class="fa fa-cubes" aria-hidden="true"></i>KISEL SELISIH</a>
+					<a class="dropdown-item" href="<?= base_url('p/kisel_selisih'); ?>"><i class="fa fa-cubes" aria-hidden="true"></i>LAPORAN KISEL</a>
 				</div>
 			</li>
 		</ul>
